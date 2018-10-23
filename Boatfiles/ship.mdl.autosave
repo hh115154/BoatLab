@@ -118,7 +118,7 @@ Model {
   LastModifiedBy	  "sondrefyhn"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Tue Oct 23 10:24:33 2018"
-  RTWModifiedTimeStamp	  462195425
+  RTWModifiedTimeStamp	  462203060
   ModelVersionFormat	  "1.%<AutoIncrement:18>"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
@@ -226,7 +226,7 @@ Model {
 	  DisabledProps		  []
 	  Description		  ""
 	  StartTime		  "0.0"
-	  StopTime		  "1000"
+	  StopTime		  "5000"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -1106,6 +1106,15 @@ Model {
       VectorParams1D	      on
     }
     Block {
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
+      SampleTime	      "-1"
+      VectorParams1D	      on
+      ZeroCross		      on
+    }
+    Block {
       BlockType		      SubSystem
       ShowPortLabels	      "FromPortIcon"
       Permissions	      "ReadWrite"
@@ -1184,7 +1193,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "193"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "35"
+    SIDHighWatermark	    "36"
     Block {
       BlockType		      SubSystem
       Name		      "Cargo ship"
@@ -1218,7 +1227,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "current"
 	    Prompt		    "current"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  Object {
 	    $ObjectID		    24
@@ -1746,7 +1755,7 @@ Model {
       SourceProductBaseCode   "SL"
       ContentPreviewEnabled   off
       xmin		      "-5000"
-      xmax		      "5000"
+      xmax		      "7500"
       ymin		      "-5000"
       ymax		      "5000"
       st		      "-1"
@@ -1762,21 +1771,22 @@ Model {
       "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
       "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
       "LoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'Serial"
-      "izedDisplays',{struct('MinYLimReal','-2648.06889','MaxYLimReal','-1053.2882','YLabelReal','','MinYLimMag','  0.0"
-      "0000','MaxYLimMag','2648.06889','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesCol"
-      "or',[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.06666666"
-      "66666667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.8313725"
-      "49019608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0."
-      "650980392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1"
-      ",'LineNames',{{'Cargo ship/1'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal"
-      "','-2648.06889','MaxYLimReal','-1053.2882','YLabelReal','','MinYLimMag','  0.00000','MaxYLimMag','2648.06889','L"
-      "egendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.686"
-      "274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.6235"
-      "29411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.7176"
-      "47058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<Signal"
-      "Label>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',"
-      "true,'Placement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'PreviousAutoscale','XY'),extmgr.Config"
-      "uration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[384 254 1085 663])"
+      "izedDisplays',{struct('MinYLimReal','421.97492','MaxYLimReal','426.22217','YLabelReal','','MinYLimMag','421.9749"
+      "2','MaxYLimMag','426.22217','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',"
+      "[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666666"
+      "6667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254901"
+      "9608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509"
+      "80392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'Li"
+      "neNames',{{'Cargo ship/1'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','4"
+      "21.97492','MaxYLimReal','426.22217','YLabelReal','','MinYLimMag','421.97492','MaxYLimMag','426.22217','LegendVis"
+      "ibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450980"
+      "3922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764"
+      "706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823"
+      "529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
+      "'LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Pl"
+      "acement',1)),extmgr.Configuration('Tools','Plot Navigation',true,'OnceAtStop',false,'PreviousAutoscale','XY'),ex"
+      "tmgr.Configuration('Tools','Measurements',true,'Version','2017b')),'Version','2017b','Location',[384 254 1085 66"
+      "3])"
       NumInputPorts	      "1"
     }
     Block {
@@ -1786,7 +1796,15 @@ Model {
       Ports		      [0, 1]
       Position		      [170, 195, 200, 225]
       ZOrder		      1
-      Frequency		      "0.05"
+      Frequency		      "0.005"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Step"
+      SID		      "36"
+      Position		      [230, 195, 260, 225]
+      ZOrder		      6
       SampleTime	      "0"
     }
     Block {
@@ -1836,8 +1854,8 @@ Model {
       }
     }
     Line {
-      ZOrder		      4
-      SrcBlock		      "Sine Wave"
+      ZOrder		      13
+      SrcBlock		      "Step"
       SrcPort		      1
       DstBlock		      "Cargo ship"
       DstPort		      1
