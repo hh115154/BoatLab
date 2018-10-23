@@ -1,6 +1,0 @@
-plot(compass.time, compass.signals.values);
-axis([0 1100 0 5])
-grid on
-xlabel('Compass [Deg]')
-ylabel('Time [s]')
-title('Compass with sin')
