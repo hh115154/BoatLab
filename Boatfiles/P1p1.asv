@@ -1,6 +1,6 @@
 %Constants
-A_1 = 29.3582;
-A_2 = 0.8826;
+A_1 = max(compacompass.signals.values); %29.3582
+A_2 = min(compass.time, compass.signals.values);
 w_1 = 0.005;
 w_2 = 0.05;
 T = sqrt((A_2^2*w_2^2 - A_1^2*w_1^2)/(A_1^2*w_1^4 - A_2^2*w_2^4)); 
