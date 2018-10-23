@@ -6,7 +6,7 @@ Model {
     NumRootInports	    0
     NumRootOutports	    0
     ParameterArgumentNames  ""
-    ComputedModelVersion    "1.18"
+    ComputedModelVersion    "1.19"
     NumModelReferences	    0
     NumTestPointedSignals   0
     NumProvidedFunctions    0
@@ -57,7 +57,7 @@ Model {
       $ObjectID		      2
       $ClassName	      "Simulink.WindowInfo"
       IsActive		      [1]
-      Location		      [0.0, 23.0, 1280.0, 716.0]
+      Location		      [-1.0, 23.0, 1280.0, 715.0]
       Object {
 	$PropName		"ModelBrowserInfo"
 	$ObjectID		3
@@ -81,9 +81,9 @@ Model {
 	IsActive		[1]
 	ViewObjType		"SimulinkTopLevel"
 	LoadSaveID		"0"
-	Extents			[1242.0, 540.0]
-	ZoomFactor		[1.9324400710475687]
-	Offset			[103.57614068914776, 39.622216239608946]
+	Extents			[1242.0, 539.0]
+	ZoomFactor		[1.5703053708645303]
+	Offset			[55.49475599333681, 51.542170257671245]
       }
       Object {
 	$PropName		"DockComponentsInfo"
@@ -103,11 +103,11 @@ Model {
       "AAAAAAA+wAAABYARABvAGMAawBXAGkAZABnAGUAdAA0AAAAAAD/////AAAAAAAAAAD7AAAAUgBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0Ac"
       "ABvAG4AZQBuAHQALwBHAEwAVQBFADIAIAB0AHIAZQBlACAAYwBvAG0AcABvAG4AZQBuAHQAAAAAAP////8AAABzAP///wAAAAEAAAAAAAAAAPwCA"
       "AAAAfsAAABUAEcATABVAEUAMgA6AFAAcgBvAHAAZQByAHQAeQBJAG4AcwBwAGUAYwB0AG8AcgAvAFAAcgBvAHAAZQByAHQAeQAgAEkAbgBzAHAAZ"
-      "QBjAHQAbwByAAAAAAD/////AAAALgD///8AAAUAAAACVwAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
+      "QBjAHQAbwByAAAAAAD/////AAAALgD///8AAAUAAAACVgAAAAEAAAACAAAAAQAAAAL8AAAAAQAAAAIAAAAP/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/"
       "////wEAAACE/////wAAAAAAAAAA/////wEAAAD2/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAF6/////wAAAAAAAAAA/"
       "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA/////wEAAAOh/////wAAAAAAAAAA/"
-      "////wEAAAPQ/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
+      "////wAAAAAA/////wAAAAAAAAAA/////wAAAAAA/////wAAAAAAAAAA"
     }
   }
   HideAutomaticNames	  on
@@ -117,9 +117,9 @@ Model {
   ModifiedByFormat	  "%<Auto>"
   LastModifiedBy	  "sondrefyhn"
   ModifiedDateFormat	  "%<Auto>"
-  LastModifiedDate	  "Tue Oct 23 10:24:33 2018"
-  RTWModifiedTimeStamp	  462203060
-  ModelVersionFormat	  "1.%<AutoIncrement:18>"
+  LastModifiedDate	  "Tue Oct 23 14:43:12 2018"
+  RTWModifiedTimeStamp	  462206833
+  ModelVersionFormat	  "1.%<AutoIncrement:19>"
   SampleTimeColors	  on
   SampleTimeAnnotations	  on
   LibraryLinkDisplay	  "none"
@@ -1175,10 +1175,18 @@ Model {
       NumInputs		      "1"
       SampleTime	      "0"
     }
+    Block {
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
   }
   System {
     Name		    "ship"
-    Location		    [0, 23, 1280, 739]
+    Location		    [-1, 23, 1279, 738]
     Open		    on
     PortBlocksUseCompactNotation off
     ModelBrowserVisibility  off
@@ -1191,9 +1199,9 @@ Model {
     TiledPaperMargins	    [1.270000, 1.270000, 1.270000, 1.270000]
     TiledPageScale	    1
     ShowPageBoundaries	    off
-    ZoomFactor		    "193"
+    ZoomFactor		    "157"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "36"
+    SIDHighWatermark	    "38"
     Block {
       BlockType		      SubSystem
       Name		      "Cargo ship"
@@ -1220,7 +1228,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "noise"
 	    Prompt		    "measurement noise"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  Object {
 	    $ObjectID		    23
@@ -1234,7 +1242,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "logic"
 	    Prompt		    "waves"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  PropName		  "Parameters"
 	}
@@ -1821,6 +1829,29 @@ Model {
       FixptAsFi		      on
       SampleTime	      "-1"
     }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "38"
+      Ports		      [1]
+      Position		      [555, 315, 615, 345]
+      ZOrder		      8
+      VariableName	      "model"
+      MaxDataPoints	      "9999999"
+      SaveFormat	      "Structure With Time"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
+      FixptAsFi		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "Transfer Fcn"
+      SID		      "37"
+      Position		      [345, 297, 460, 363]
+      ZOrder		      7
+      Numerator		      "[K]"
+      Denominator	      "[T 1 0]"
+    }
     Line {
       ZOrder		      1
       SrcBlock		      "Cargo ship"
@@ -1857,7 +1888,24 @@ Model {
       ZOrder		      13
       SrcBlock		      "Step"
       SrcPort		      1
-      DstBlock		      "Cargo ship"
+      Points		      [22, 0]
+      Branch {
+	ZOrder			15
+	Points			[0, 120]
+	DstBlock		"Transfer Fcn"
+	DstPort			1
+      }
+      Branch {
+	ZOrder			14
+	DstBlock		"Cargo ship"
+	DstPort			1
+      }
+    }
+    Line {
+      ZOrder		      17
+      SrcBlock		      "Transfer Fcn"
+      SrcPort		      1
+      DstBlock		      "To Workspace1"
       DstPort		      1
     }
   }
