@@ -80,6 +80,7 @@ function sys=mdlOutputs(t,x,u)% mdlOutputs(t,x,u,data) if mathod 2 is used
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 sys=[];
 
+
 function sys=mdlTerminate(t,x,u) 
 sys = [];
 
