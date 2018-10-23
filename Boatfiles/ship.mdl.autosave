@@ -58,7 +58,7 @@ Model {
 	LoadSaveID		"0"
 	Extents			[1752.0, 1258.0]
 	ZoomFactor		[1.0]
-	Offset			[0.0, 0.0]
+	Offset			[-58.75, 0.0]
       }
     }
   }
@@ -69,7 +69,7 @@ Model {
   LastModifiedBy	  "Sjurinho"
   ModifiedDateFormat	  "%<Auto>"
   LastModifiedDate	  "Tue Oct 23 11:31:38 2018"
-  RTWModifiedTimeStamp	  462195096
+  RTWModifiedTimeStamp	  462203072
   ModelVersionFormat	  "1.%<AutoIncrement:18>"
   ConfigurationManager	  "none"
   SampleTimeColors	  off
@@ -170,7 +170,7 @@ Model {
 	  $ObjectID		  8
 	  Version		  "1.16.2"
 	  StartTime		  "0.0"
-	  StopTime		  "99999999"
+	  StopTime		  "5000"
 	  AbsTol		  "auto"
 	  FixedStep		  "auto"
 	  InitialStep		  "auto"
@@ -889,17 +889,13 @@ Model {
       Floating		      off
     }
     Block {
-      BlockType		      Sin
-      SineType		      "Time based"
-      TimeSource	      "Use simulation time"
-      Amplitude		      "1"
-      Bias		      "0"
-      Frequency		      "1"
-      Phase		      "0"
-      Samples		      "10"
-      Offset		      "0"
+      BlockType		      Step
+      Time		      "1"
+      Before		      "0"
+      After		      "1"
       SampleTime	      "-1"
       VectorParams1D	      on
+      ZeroCross		      on
     }
     Block {
       BlockType		      SubSystem
@@ -960,6 +956,14 @@ Model {
       NumInputs		      "1"
       SampleTime	      "0"
     }
+    Block {
+      BlockType		      TransferFcn
+      Numerator		      "[1]"
+      Denominator	      "[1 2 1]"
+      AbsoluteTolerance	      "auto"
+      ContinuousStateAttributes	"''"
+      Realization	      "auto"
+    }
   }
   System {
     Name		    "ship"
@@ -977,7 +981,7 @@ Model {
     ShowPageBoundaries	    off
     ZoomFactor		    "100"
     ReportName		    "simulink-default.rpt"
-    SIDHighWatermark	    "33"
+    SIDHighWatermark	    "38"
     Block {
       BlockType		      SubSystem
       Name		      "Cargo ship"
@@ -1004,7 +1008,7 @@ Model {
 	    Type		    "checkbox"
 	    Name		    "noise"
 	    Prompt		    "measurement noise"
-	    Value		    "on"
+	    Value		    "off"
 	  }
 	  Object {
 	    $ObjectID		    22
@@ -1137,9 +1141,10 @@ Model {
 	  Ports			  [0, 1]
 	  Position		  [500, 45, 530, 75]
 	  ZOrder		  -10
-	  LibraryVersion	  "1.274"
+	  LibraryVersion	  "1.386"
 	  SourceBlock		  "simulink/Sources/Band-Limited\nWhite Noise"
 	  SourceType		  "Band-Limited White Noise."
+	  ContentPreviewEnabled	  off
 	  Cov			  "[0.001]"
 	  Ts			  ".5"
 	  seed			  "[23341]"
@@ -1546,19 +1551,45 @@ Model {
       Ports		      [1]
       Position		      [555, 134, 585, 166]
       ZOrder		      -3
-      ScopeSpecificationString "C++SS(StrPVP('Location','[188, 365, 512, 604]'),StrPVP('Open','off'),MxPVP('AxesTitles"
-      "',24,'struct(''axes1'',''%<SignalLabel>'')'),StrPVP('ShowLegends','off'),StrPVP('DataFormat','StructureWithTime'"
-      "),StrPVP('BlockParamSampleTime','0'),StrPVP('LimitDataPoints','on'),StrPVP('Decimation','1'),StrPVP('BlockParamS"
-      "ampleInput','off'))"
+      ScopeSpecificationString "Simulink.scopes.TimeScopeBlockCfg('CurrentConfiguration', extmgr.ConfigurationSet(extm"
+      "gr.Configuration('Core','General UI',true),extmgr.Configuration('Core','Source UI',true),extmgr.Configuration('S"
+      "ources','WiredSimulink',true,'DataLoggingSaveFormat','StructureWithTime','DataLoggingLimitDataPoints',true,'Data"
+      "LoggingDecimation','1','DataLoggingDecimateData',true),extmgr.Configuration('Visuals','Time Domain',true,'Serial"
+      "izedDisplays',{struct('MinYLimReal','354.59875','MaxYLimReal','884.36125','YLabelReal','','MinYLimMag','354.5987"
+      "5','MaxYLimMag','884.36125','LegendVisibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',"
+      "[0 0 0],'AxesTickColor',[0.686274509803922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.066666666666"
+      "6667;0.0745098039215686 0.623529411764706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.83137254901"
+      "9608 0.0745098039215686;0.717647058823529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.6509"
+      "80392156863],'Title','%<SignalLabel>','LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',1,'Li"
+      "neNames',{{'Cargo ship/1'}},'ShowContent',true,'Placement',1)},'DisplayPropertyDefaults',struct('MinYLimReal','3"
+      "54.59875','MaxYLimReal','884.36125','YLabelReal','','MinYLimMag','354.59875','MaxYLimMag','884.36125','LegendVis"
+      "ibility','off','XGrid',true,'YGrid',true,'PlotMagPhase',false,'AxesColor',[0 0 0],'AxesTickColor',[0.68627450980"
+      "3922 0.686274509803922 0.686274509803922],'ColorOrder',[1 1 0.0666666666666667;0.0745098039215686 0.623529411764"
+      "706 1;1 0.411764705882353 0.16078431372549;0.392156862745098 0.831372549019608 0.0745098039215686;0.717647058823"
+      "529 0.274509803921569 1;0.0588235294117647 1 1;1 0.0745098039215686 0.650980392156863],'Title','%<SignalLabel>',"
+      "'LinePropertiesCache',{{}},'UserDefinedChannelNames',{{}},'NumLines',0,'LineNames',{{[]}},'ShowContent',true,'Pl"
+      "acement',1)),extmgr.Configuration('Tools','Plot Navigation',true),extmgr.Configuration('Tools','Measurements',tr"
+      "ue,'Measurements',struct('tcursors',struct('XCoordinates',[1250 3719.87951807229],'YCoordinates',[NaN 657.818075"
+      "664276],'CursorChannels',[1 1],'WaveformCursors',true,'ShowHorizontal',false,'ShowVertical',true,'LockCursorSpac"
+      "ing',false,'SnapToData',false,'SettingsPanelOpen',0,'MeasurementsPanelOpen',1)),'Version','2016a')),'Version','2"
+      "016a','Location',[333.8 294.2 1072.2 532.6])"
     }
     Block {
-      BlockType		      Sin
-      Name		      "Sine Wave"
-      SID		      "32"
-      Ports		      [0, 1]
-      Position		      [235, 195, 265, 225]
-      ZOrder		      2
-      Frequency		      "0.005"
+      BlockType		      Step
+      Name		      "Step"
+      SID		      "35"
+      Position		      [230, 195, 260, 225]
+      ZOrder		      5
+      Time		      "0"
+      SampleTime	      "0"
+    }
+    Block {
+      BlockType		      Step
+      Name		      "Step1"
+      SID		      "37"
+      Position		      [240, 380, 270, 410]
+      ZOrder		      7
+      Time		      "0"
       SampleTime	      "0"
     }
     Block {
@@ -1570,10 +1601,33 @@ Model {
       ZOrder		      3
       VariableName	      "compass"
       MaxDataPoints	      "inf"
-      SaveFormat	      "Timeseries"
+      SaveFormat	      "Structure With Time"
       Save2DSignal	      "3-D array (concatenate along third dimension)"
       FixptAsFi		      on
       SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      ToWorkspace
+      Name		      "To Workspace1"
+      SID		      "38"
+      Ports		      [1]
+      Position		      [475, 380, 535, 410]
+      ZOrder		      8
+      VariableName	      "model"
+      MaxDataPoints	      "inf"
+      SaveFormat	      "Structure With Time"
+      Save2DSignal	      "3-D array (concatenate along third dimension)"
+      FixptAsFi		      on
+      SampleTime	      "-1"
+    }
+    Block {
+      BlockType		      TransferFcn
+      Name		      "Transfer Fcn"
+      SID		      "36"
+      Position		      [340, 377, 400, 413]
+      ZOrder		      6
+      Numerator		      "[K]"
+      Denominator	      "[T 1 0]"
     }
     Line {
       ZOrder		      1
@@ -1608,10 +1662,24 @@ Model {
       }
     }
     Line {
-      ZOrder		      4
-      SrcBlock		      "Sine Wave"
+      ZOrder		      11
+      SrcBlock		      "Step"
       SrcPort		      1
       DstBlock		      "Cargo ship"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      13
+      SrcBlock		      "Step1"
+      SrcPort		      1
+      DstBlock		      "Transfer Fcn"
+      DstPort		      1
+    }
+    Line {
+      ZOrder		      15
+      SrcBlock		      "Transfer Fcn"
+      SrcPort		      1
+      DstBlock		      "To Workspace1"
       DstPort		      1
     }
   }

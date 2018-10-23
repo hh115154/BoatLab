@@ -1,0 +1,19 @@
+%Constants
+K = ; %With A1 = 29.4
+T = sqrt((A_2^2*w_2^2 - A_1^2*w_1^2)/A_1); %With A2 = 0.8
+
+
+%model of the system
+s = tf('s');
+G = K/(s*(1+T*s))*1/s;
+
+%plot of responses
+plot(compass.time, compass.signals.values)
+hold on;
+plot(model.time, model.signals.values);
+legend('Ship response','Model response');
+xlabel('Time[sec]');
+ylabel('Compass angle[deg]');
+title('Ship response vs Model response');
+grid on;
+hold off;
