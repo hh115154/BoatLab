@@ -14,6 +14,7 @@ grid minor;
 xlabel('Frequency [rad/s]');
 ylabel('Power Spectral Density [power s/rad]')
 
+Kw = 2*?*0.7823*0*sqrt(0.00079191); 
 
 %%Finding max value and corresponding frequency value%%
 display(max(pxx1));

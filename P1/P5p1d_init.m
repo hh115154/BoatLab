@@ -2,10 +2,10 @@
 %%%%NOT NECESSARY FOR THIS TASK, VALUES ALREADY CALCULATED!%%%%
 a_max_1 = max(compass.signals.values);
 a_min_1 = min(compass.signals.values(1000:5000));
-a_max_2 = max(compass2.signals.values); 
-a_min_2 = min(compass2.signals.values(1000:5000));
+%a_max_2 = max(compass2.signals.values); 
+%a_min_2 = min(compass2.signals.values(1000:5000));
 A_1 = (a_max_1 - a_min_1)/2;
-A_2 = (a_max_2 - a_min_2)/2;
+%A_2 = (a_max_2 - a_min_2)/2;
 w_1 = 0.005;
 w_2 = 0.05;
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
