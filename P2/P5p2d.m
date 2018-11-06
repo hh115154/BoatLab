@@ -25,7 +25,6 @@ lambda3 = 0.25;
 omega0 = 0.7823;
 sigma = sqrt(0.00079191);
 
-
 omega = f1; 
 Kw = 2*lambda1*omega0*sigma;
 pxx_1 = (omega.*Kw).^2./(omega.^4 + omega0^4 + 2*omega0^2*omega.^2*(2*lambda1^2-1));
