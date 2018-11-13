@@ -4,6 +4,7 @@ sigma = sqrt(0.00079191);
 lambda = 0.08;
 T = 70.55;
 Kw = 2*lambda*omega_0*sigma;
+display(Kw);
 
 %syms K w G l T s
 
@@ -19,5 +20,16 @@ T1 = 10;
 Cd = C; 
 Dd = D; 
 
+latex_table = latex(vpa(sym(A),2))
+latex_table = latex(vpa(sym(B),2))
+latex_table = latex(vpa(sym(E),2))
+
+
+
+% display(A);
+% display(B);
+% display(E);
+% display(C);
+% display(ad);
 %display(bd);
 %display(ed);
