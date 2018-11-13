@@ -19,5 +19,9 @@ T1 = 10;
 Cd = C; 
 Dd = D; 
 
+measurement_noise = var(compass.signals.values);
+
+plot(compass.time, compass.signals.values, 'b');
+hold on;
 %display(bd);
 %display(ed);
