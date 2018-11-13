@@ -5,27 +5,31 @@ T = 70.55;
 %%Drawing bode plot.
 %%given
 w_c = 0.1;
-%%0.1 is alpha, defined to lift the phase.
+%%0.119 is alpha, defined to lift the phase.
 T_f = 0.119*T; 
-%%Psi_ref
+%%Reference for compass angle
 psi_ref = 30;
 
 K_pd_desibel = -log10(K) + log10(w_c) + log10(abs(complex(1, w_c*T_f)));
 K_pd = 10^((K_pd_desibel));
 s = tf('s');
 H_0 = K * K_pd/(s*(1+T_f*s));
-sys = tf(H_0);
+%sys = tf(H_0);
+figure;
 bode(H_0);
-margin(H_0);
+%margin(H_0);
 
 %%Plotting the model
 figure;
+plot(compass_ref.time,compass_ref.signals.values, '--r')
+hold on;
 plot(compass.time, compass.signals.values, 'b');
 hold on;
-plot(rudder.time, rudder.signals.values, '--k');
-legend('Model', 'Ship Compass', 'Rudder input');
+plot(rudder.time, rudder.signals.values, 'k');
+legend('Compass reference', 'Ship Compass', 'Rudder input');
 xlabel('Time[s]');
 ylabel('Degrees[deg]');
-xlim([0 300]);
+xlim([0 500]);
 ylim auto;
+hold off;
 
