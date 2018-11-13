@@ -24,6 +24,10 @@ Dd = D;
 measurement_noise = var(compass.signals.values);
 
 plot(compass.time, compass.signals.values, 'b');
+axis([0 2500 -0.2 0.2])
+title('Measurment Noise');
+xlabel('Time [s]');
+ylabel('Compass Value [deg]')
 hold on;
 %display(bd);
 %display(ed);
