@@ -15,6 +15,7 @@ T = 70.55; %sqrt((A_2^2*w_2^2 - A_1^2*w_1^2)/(A_1^2*w_1^4 - A_2^2*w_2^4));
 K = 0.16; %A_1*w_1*sqrt(1+T^2*w_1^2);
 
 %plot of responses
+figure;
 plot(compass.time, compass.signals.values,'r');
 hold on;
 plot(model.time, model.signals.values,'b');
