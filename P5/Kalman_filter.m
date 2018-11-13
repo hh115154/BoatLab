@@ -33,8 +33,6 @@ prior_P_covar = ad * P_k * transpose(ad) + Q_k;
 
 psi = x_est * Cd;
 b = x_est*[0 0 0 0 1];
-%outputArg1 = compass_measurement;
-%outputArg2 = rudder_input;
 end
 
 
