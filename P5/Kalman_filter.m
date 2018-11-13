@@ -1,17 +1,12 @@
 function [psi,b] = Kalman_filter(compass_measurement,rudder_input)
 %%%%%%%%%%%%%%ALGORITHM FOR COMPUTING KALMAN FILTER%%%%%%%%%%%%%%%%%%%%%%%
 <<<<<<< HEAD
-%Acquiring the correct matrices
-run P5p5a_init.m;
-run ../P3/P5p3d_init;
-=======
 %Acquiring the correct matrices and constants
 Cd = [0 1 1 0 0];
 ad = [0.996954313155578 0.0992754311108234 0 0 0;-0.0607558977016812 0.984528205994299 0 0 0;0 0 1 0.0999291617512947 -1.13341197928432e-05;0 0 0 0.998583569642080 -0.000226628857267288;0 0 0 0 1];
 Q_k = [30 0; 0 10^(-6)];
 I = [1 0 0 0 0; 0 1 0 0 0; 0 0 1 0 0; 0 0 0 1 0; 0 0 0 0 1];
 R = 0.0020*pi^2/180^2;
->>>>>>> eb7926fa0cd5caacdd461e53d8a00eafd5de426e
 
 %%Defining init flag
 persistent init_flag prior_x_est prior_P_covar;
