@@ -21,13 +21,15 @@ data = struct('ad', ad, 'bd', bd, 'Cd', Cd, 'ed', ed, 'Q_k', Q_k, 'I', I, 'R',R,
  hold on; 
  plot(act_psi_omega.time, act_psi_omega.signals.values, 'b');
  hold on;  
- xlim([0 150]);
- ylim([-5, 8.2]);
+ xlim([0 100]);
+ ylim([-4 9]);
  
  %title('Wave Influence')
  legend('Estimated wave influence', 'Actual wave influence');
-xlabel('Time [s]');
+ xlabel('Time [s]');
 ylabel('Wave Influence [deg]');
+
+
 
 % %%Plotting the model
 % plot(compass_ref.time,compass_ref.signals.values, '--black')
