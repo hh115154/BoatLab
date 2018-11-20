@@ -14,16 +14,35 @@ ed = [1.752951148958393e-05 0;3.496817831985058e-04 0;0 -3.778486149100418e-07;0
 prior_x_est = [0; 0; 0; 0; 0]; 
 prior_P_covar = [1 0 0 0 0; 0 0.013 0 0 0; 0 0 pi^2 0 0; 0 0 0 1 0; 0 0 0 0 2.5*10^(-3)];
 data = struct('ad', ad, 'bd', bd, 'Cd', Cd, 'ed', ed, 'Q_k', Q_k, 'I', I, 'R',R, 'prior_P_covar',prior_P_covar, 'prior_x_est', prior_x_est);
-figure;
-plot(compass.time, compass.signals.values, 'b--');
-hold on;
 
+
+ figure;
+ plot(est_psi_omega.time, est_psi_omega.signals.values, 'r');
+ hold on; 
+ plot(act_psi_omega.time, act_psi_omega.signals.values, 'b');
+ hold on;  
+ xlim([0 150]);
+ ylim([-5, 8.2]);
+ 
+ %title('Wave Influence')
+ legend('Estimated wave influence', 'Actual wave influence');
 xlabel('Time [s]');
-ylabel('Compass Angle [deg]');
-title('Estimate vs Measurement')
-axis([0 500 0 37.5]);
-plot(compass_est.time, compass_est.signals.values, 'r');
-hold on;
-plot(compass.time, compass_ref.signals.values,'black--');
-hold on;
-legend('Measured Compass Angle', 'Estimated Compass Angle', 'Compass Angle Reference');
+ylabel('Wave Influence [deg]');
+
+% %%Plotting the model
+% plot(compass_ref.time,compass_ref.signals.values, '--black')
+% hold on;
+% plot(compass.time, compass.signals.values, 'b');
+% hold on;
+% plot(compass_est.time, compass_est.signals.values, 'r');
+% hold on;
+% plot(rudder.time, rudder.signals.values, 'k');
+% hold on;
+% plot(bias.time, bias.signals.values, 'g'); 
+% 
+% legend('Compass Angle reference', 'Ship Compass Angle', 'Estimated Compass Angle', 'Rudder input', 'Estimated Bias');
+% xlabel('Time[s]');
+% ylabel('Degrees[deg]');
+% xlim([0 500]);
+% ylim auto;
+% hold off;
