@@ -31,5 +31,6 @@ xlabel('Time[s]');
 ylabel('Degrees[deg]');
 xlim([0 500]);
 ylim auto;
+plot(error.time, error.signals.values, 'g');
 hold off;
 

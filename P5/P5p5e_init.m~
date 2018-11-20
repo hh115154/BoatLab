@@ -1,7 +1,5 @@
-%% Define needed constants and initial values for kalman filter and simulation. Load didn't work
-%Constants
+%Acquiring the correct matrices and constants
 K_pd = 0.816058507166699;
-K = 0.160000000000000;
 psi_ref = 30;
 T = 70.55;
 K = 0.16;
@@ -13,9 +11,23 @@ Q_k = [30 0; 0 10^(-6)];
 I = [1 0 0 0 0; 0 1 0 0 0; 0 0 1 0 0; 0 0 0 1 0; 0 0 0 0 1];
 R = 0.0020*pi^2/180^2;
 ed = [1.752951148958393e-05 0;3.496817831985058e-04 0;0 -3.778486149100418e-07;0 -1.133411979284323e-05;0 0.100000000000000];
-%Initial values
 prior_x_est = [0; 0; 0; 0; 0]; 
 prior_P_covar = [1 0 0 0 0; 0 0.013 0 0 0; 0 0 pi^2 0 0; 0 0 0 1 0; 0 0 0 0 2.5*10^(-3)];
-%Struct for feeding into function
 data = struct('ad', ad, 'bd', bd, 'Cd', Cd, 'ed', ed, 'Q_k', Q_k, 'I', I, 'R',R, 'prior_P_covar',prior_P_covar, 'prior_x_est', prior_x_est);
 
+
+figure;
+%%Plotting the model
+plot(compass_ref.time,compass_ref.signals.values, '--black')
+hold on;
+plot(compass.time, compass.signals.values, 'b');
+hold on;
+plot(compass_est.time, compass_est.signals.values, 'r');
+hold on;
+plot(rudder.time, rudder.signals.values, 'k');
+legend('Compass Angle reference', 'Ship Compass Angle',, 'Estimated Compass Angle' 'Rudder input');
+xlabel('Time[s]');
+ylabel('Degrees[deg]');
+xlim([0 500]);
+ylim auto;
+hold off;
