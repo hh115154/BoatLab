@@ -23,9 +23,9 @@ bode(H_0);
 figure;
 plot(compass_ref.time,compass_ref.signals.values, '--r')
 hold on;
-plot(compass.time, compass.signals.values, 'b');
+plot(compass1.time, compass1.signals.values, 'b');
 hold on;
-plot(rudder.time, rudder.signals.values, 'k');
+plot(rudder_comp.time, rudder_comp.signals.values, 'k');
 legend('Compass reference', 'Ship Compass', 'Rudder input');
 xlabel('Time[s]');
 ylabel('Degrees[deg]');
