@@ -15,6 +15,9 @@ w_2 = 0.05;
 T = sqrt((A_2^2*w_2^2 - A_1^2*w_1^2)/(A_1^2*w_1^4 - A_2^2*w_2^4)); 
 K = A_1*w_1*sqrt(1+T^2*w_1^2);
 
+%%Running simulink
+sim('P5p1b.mdl', 5000);
+
 %Plot
 plot(compass.time, compass.signals.values);
 axis([0 5000 -4 70])
