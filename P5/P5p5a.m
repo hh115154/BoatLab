@@ -20,11 +20,7 @@ T1 = 10;
 Cd = C; 
 Dd = D; 
 
-
-measurement_noise = var(compass.signals.values);
-
-plot(compass.time, compass.signals.values, 'b');
-hold on;
+%% Code for latex insertion
 latex_table = latex(vpa(sym(ad),2));
 latex_table2 = latex(vpa(sym(bd),2));
 latex_table3 = latex(vpa(sym(ed),2));
@@ -32,11 +28,3 @@ latex_table3 = latex(vpa(sym(ed),2));
 display(latex_table);
 display(latex_table2);
 display(latex_table3);
-
-% display(A);
-% display(B);
-% display(E);
-% display(C);
-% display(ad);
-% display(bd);
-% display(ed);

@@ -1,8 +1,13 @@
 %Acquiring the correct matrices and constants
-run P5p5c_init.m
+run P5p5c
 
+%%Running simulink
+addpath CommonFiles
+load wave.mat
+sim('P5p5ex.slx', 5000);
 %%%%%%%%%%%%%%%%%%Plotting%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  figure;
+ %%Part 1 of the task
 %  plot(est_psi_omega.time, est_psi_omega.signals.values, 'r');
 %  hold on; 
 %  plot(act_psi_omega.time, act_psi_omega.signals.values, 'b');
@@ -14,9 +19,9 @@ run P5p5c_init.m
 %  legend('Estimated wave influence', 'Actual wave influence');
 %  xlabel('Time [s]');
 %  ylabel('Wave Influence [deg]');
+%%Part 1 finshed %%
 
-
-
+%%Part 2 of the task
 % %%Plotting the model
 plot(compass_ref.time,compass_ref.signals.values, '--black')
 hold on;

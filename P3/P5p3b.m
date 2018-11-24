@@ -17,7 +17,12 @@ H_0 = K * K_pd/(s*(1+T_f*s));
 %sys = tf(H_0);
 figure;
 bode(H_0);
-%margin(H_0);
+margin(H_0);
+
+%%Running simulink
+addpath CommonFiles
+load wave.mat
+sim('P5p3bx.slx', 5000);
 
 %%Plotting the model
 figure;
@@ -28,9 +33,9 @@ hold on;
 plot(rudder.time, rudder.signals.values, 'k');
 legend('Compass reference', 'Ship Compass', 'Rudder input');
 xlabel('Time[s]');
-ylabel('Degrees[deg]');
+ylabel('Angle[deg]');
 xlim([0 500]);
 ylim auto;
-plot(error.time, error.signals.values, 'g');
+%%plot(error.time, error.signals.values, 'g');
 hold off;
 

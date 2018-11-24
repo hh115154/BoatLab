@@ -1,3 +1,8 @@
+%%Running simulink
+addpath CommonFiles
+load wave.mat
+sim('P5p1cx.mdl', 5000);
+
 %Determining constants
 %Calculating amplitude with w1.
 a_max_1 = max(compass.signals.values); %Finding max values of signal with w1.
@@ -15,8 +20,6 @@ w_2 = 0.05;
 T = sqrt((A_2^2*w_2^2 - A_1^2*w_1^2)/(A_1^2*w_1^4 - A_2^2*w_2^4)); 
 K = A_1*w_1*sqrt(1+T^2*w_1^2);
 
-%%Running simulink
-sim('P5p1c.mdl', 5000);
 
 %Plot
 plot(compass.time, compass.signals.values);

@@ -19,6 +19,11 @@ T1 = 10;
 Cd = C; 
 Dd = D; 
 
+%%Running simulink
+addpath CommonFiles
+load wave.mat
+sim('P5p5bx.slx', 5000);
+
 %Inserting a 0 reference to the ship model with only measurement noise
 %checked. Then taking the variance of the output.
 measurement_noise = var(compass.signals.values);
